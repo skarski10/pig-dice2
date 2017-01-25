@@ -1,5 +1,4 @@
 //backend
-// var thisTurn = [];
 var thisTurnTotal = 0;
 var player1 = 0;
 var player2 = 0;
@@ -7,7 +6,6 @@ var playerTracker = 1
 
 function rollDice() {
   var rollResult = Math.floor(Math.random() * 6 ) + 1;
-  // thisTurn.push(rollResult);
   if (rollResult === 1) {
     thisTurnTotal = 0;
     endTurn();
@@ -36,12 +34,10 @@ function reset() {
 }
 
 //frontend
+
 $(document).ready(function(){
 
-  $('#reset').click(function() {
-    displayReset();
-  });
-  $("#hold").click(function(){
+  $("#hold").click(function() {
     endTurn();
     $("#turnscore").text(thisTurnTotal);
     $("#player1score").text(player1);
@@ -49,14 +45,18 @@ $(document).ready(function(){
     if (player1 >= 100) {
       $('.winnerplayer1').show().delay(1000).fadeOut();
       displayReset();
-    }
-    if (player2 >= 100) {
+    } else if (player2 >= 100) {
       $('.winnerplayer2').show().delay(1000).fadeOut();
       displayReset();
+    } else {
+      $("#player1").toggleClass("well");
+      $("#player2").toggleClass("well");
     }
 
-    $("#player1").toggleClass("well");
-    $("#player2").toggleClass("well");
+  });
+
+  $('#reset').click(function() {
+    displayReset();
   });
   $("#roll").click(function(){
     rollResult = rollDice();
@@ -76,6 +76,6 @@ function displayReset(){
   $("#turnscore").text(0);
   $("#player1score").text(0);
   $("#player2score").text(0);
-  $("#player1").removeClass("well").addClass("well");
+  $("#player1").addClass("well");
   $("#player2").removeClass("well");
 }
