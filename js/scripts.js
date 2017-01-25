@@ -37,6 +37,10 @@ function reset() {
 
 //frontend
 $(document).ready(function(){
+
+  $('#reset').click(function() {
+    displayReset();
+  });
   $("#hold").click(function(){
     endTurn();
     $("#turnscore").text(thisTurnTotal);
