@@ -60,8 +60,9 @@ $(document).ready(function(){
   });
   $("#roll").click(function(){
     rollResult = rollDice();
-    $("#diceroll").text(rollResult);
-    $('#turnscore').text(thisTurnTotal);
+    $("img").show().delay(1000).fadeOut();
+    $("#diceroll").text(rollResult).hide().delay(1500).fadeIn();
+    $('#turnscore').text(thisTurnTotal).hide().delay(1500).fadeIn();
     if (rollResult === 1){
       $("#player1").toggleClass("well");
       $("#player2").toggleClass("well");

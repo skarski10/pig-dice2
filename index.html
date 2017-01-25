@@ -13,10 +13,11 @@
   <body>
     <div class="container">
       <div class="jumbotron row">
-        <div class="col-md-6">
+        <div class="col-md-11">
           <h1>Pig Dice</h1>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-1">
+          <br><br><br>
           <button type="button" id="reset" class="btn">Reset</button>
         </div>
       </div>
@@ -29,18 +30,21 @@
             <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
             <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
           </ul>
-      <div class="row">
+      <div class="row playArea">
         <div class="col-md-3 well" id="player1">
           <h1>Player 1:</h1>
           <p>
             <span id="player1score">0</span>
           </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 rolling">
           <div class="row">
             This Turn: <span id="turnscore"></span>
           </div>
           <div class="row">
+            <div class="pic">
+              <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0013.gif" alt="a picture of dice rolling" />
+            </div>
             <h1 id="diceroll">Roll the die</h1>
             <button type="button" name="hold" class="btn" id="hold">Hold</button>
             <button type="button" name="roll" class="btn" id="roll">Roll</button>

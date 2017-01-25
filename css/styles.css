@@ -1,3 +1,16 @@
 .winnerplayer1, .winnerplayer2 {
   display: none;
 }
+
+.rolling {
+  text-align: center;
+}
+
+.playArea {
+  padding-top: 5%;
+}
+
+img {
+  margin-left: 45%;
+  display: none;
+}
