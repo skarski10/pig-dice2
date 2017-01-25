@@ -25,15 +25,52 @@ function endTurn () {
     player2 += thisTurnTotal;
     playerTracker = 1;
   }
+  thisTurnTotal = 0;
+}
+
+function reset() {
+  thisTurnTotal = 0;
+  player1 = 0;
+  player2 = 0;
+  playerTracker = 1
 }
 
 //frontend
 $(document).ready(function(){
   $("#hold").click(function(){
+    endTurn();
+    $("#turnscore").text(thisTurnTotal);
+    $("#player1score").text(player1);
+    $("#player2score").text(player2);
+    if (player1 >= 100) {
+      $('.winnerplayer1').show().delay(1000).fadeOut();
+      displayReset();
+    }
+    if (player2 >= 100) {
+      $('.winnerplayer2').show().delay(1000).fadeOut();
+      displayReset();
+    }
 
-  })
+    $("#player1").toggleClass("well");
+    $("#player2").toggleClass("well");
+  });
   $("#roll").click(function(){
-    $("#diceroll").text(rollDice());
+    rollResult = rollDice();
+    $("#diceroll").text(rollResult);
     $('#turnscore').text(thisTurnTotal);
-  })
-})
+    if (rollResult === 1){
+      $("#player1").toggleClass("well");
+      $("#player2").toggleClass("well");
+    }
+  });
+});
+
+function displayReset(){
+  reset();
+  $("#diceroll").text("Roll the die");
+  $("#turnscore").text(0);
+  $("#player1score").text(0);
+  $("#player2score").text(0);
+  $("#player1").removeClass("well").addClass("well");
+  $("#player2").removeClass("well");
+}
